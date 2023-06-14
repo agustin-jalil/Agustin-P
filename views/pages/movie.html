@@ -1,0 +1,240 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+  }
+
+  body{
+    --u:  8vmin;
+	  --c1: #ffa726;
+    --c2: #e59319;
+    --c3: #f1a12c;
+    --c4: #cf8b26;
+    --sh: #5f0609;
+    --sh2: #5f0609;
+    --gp: 50%/ calc(var(--u) * 2) calc(var(--u) * 2);
+    height: 100vh;
+	  background:
+		conic-gradient(from -10deg at 60% 0%, #fff0 0 25%, var(--sh2) 28%, #fff0 31% 100%) var(--gp),
+		conic-gradient(from -5deg at 0% calc(60% - 1px), #fff0 0, var(--sh) 0%, #fff0 4% 100%) var(--gp),
+		conic-gradient(from 0deg at 60% calc(60% - 1px), #fff0 0 22%, var(--sh2) 25%, #fff0 25% 100%) var(--gp),
+		conic-gradient(from 0deg at 60% calc(60% - 1px), var(--c4) 0 25%, #fff0 0 97.5%, var(--sh) 102%) var(--gp),
+		linear-gradient(180deg, #fff0 0%, var(--sh) 10%, #fff0 10% 50%, var(--sh) 50%, #fff0 60% 101%) var(--gp),
+		linear-gradient(180deg, #fff0 10%, var(--c3) 10% 50%, #fff0 50% 100%) var(--gp),
+		linear-gradient(90deg, #fff0 0%, var(--sh) 10%, #fff0 10% 50%, var(--sh) 50%, #fff0 60% 100%) var(--gp),
+		linear-gradient(90deg, #fff0 10%, var(--c2) 10% 50%, #fff0 50% 100%) var(--gp),
+		linear-gradient(180deg, #fff0 60%, var(--c1) 60% 100%) var(--gp),
+		#6a1c00;
+  }
+
+  .container{
+    font-size: 16px;
+    width: 90vw;
+    max-width: 37.5em;
+    padding: 2em 3em;
+    background-color: #f1a12c;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 0.6em;
+    box-shadow: 0px 0px 0px 4px rgba(95,6,9,1);
+    -webkit-box-shadow: 0px 0px 0px 4px rgba(95,6,9,1);
+    -moz-box-shadow: 0px 0px 0px 4px rgba(95,6,9,1);
+  }
+
+  .search-container{
+      display: grid;
+      grid-template-columns: 9fr 3fr;
+      gap: 1.2em;
+  }
+
+  .search-container input, .search-container button{
+      font-size: 0.9em;
+      outline: none;
+      border-radius: 0.3em;
+  }
+
+  .search-container input {
+      background-color: transparent;
+      border: 1px solid #000000;
+      color: #fff;
+      padding: 1.5em;
+    }
+
+  .search-container input:focus{
+      border-color: #fff;
+  }
+
+  .search-container button{
+      background-color: #ffb92a;
+      border: none;
+      cursor: pointer;
+  }
+
+  #result{
+      color: #fff;
+  }
+
+  .info{
+      position: relative;
+      display: grid;
+      grid-template-columns: 3fr 8fr;
+      margin-top: 1.2em;
+  }
+
+  .poster{
+      width: 100%;
+  }
+
+  h2{
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+  }
+
+  .rating{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
+      margin: 0.6em 0 0.9em 0;
+  }
+
+  .rating img{
+      width: 1.2em;
+  }
+
+  .rating h4{
+      display: inline-block;
+      font-size: 1.1em;
+      font-weight: 500;
+  }
+
+  .details{
+      display: flex;
+      font-size: 0.95em;
+      gap: 1em;
+      justify-content: center;
+      color: #a0a0a0;
+      margin: 0.6em 0;
+      font-weight: 300;
+  }
+
+  .genre{
+      display: flex;
+      justify-content: space-around;
+  }
+
+  .genre div{
+      border: 1px solid #a0a0a0;
+      font-size: 0.75em;
+      padding: 0.4em 1.6em;
+      border-radius: 0.4em;
+      font-weight: 300;
+  }
+
+  h3{
+      font-weight: 500;
+      margin-top: 1.2em;
+  }
+
+  p{
+    font-size: 0.7em;
+    font-weight: 150;
+    line-height: 1.5em;
+    text-align: justify;
+  }
+
+  .msg{
+      text-align: center;
+  }
+
+  @media screen and (max-width: 600px) {
+      .container{
+          font-size: 14px;
+      }
+      .poster{
+          margin: auto;
+          width: auto;
+          max-height: 10.8em;
+      }
+
+      .info{
+          grid-template-columns: 1fr;
+      }
+
+  }
+</style>
+
+<div class="container">
+  <div class="search-container">
+      <input type="text" id="movie-name" placeholder="Please enter a movie name.. Ej:Batman" value="">
+      <button id="search-btn">Search</button>
+  </div>
+  <div id="result"></div>
+</div>
+<script>
+  let movieNameRef = document.getElementById("movie-name");
+  let searchBtn = document.getElementById("search-btn");
+  let result = document.getElementById("result");
+
+  //function to fetch data from api
+  let getMovie = () => {
+      let key = "2327e276";
+      let movieName = movieNameRef.value;
+      let url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
+      //if input field is empty
+
+      if (movieName.length <= 0) {
+          result.innerHTML = ``;
+      }
+
+      //if input isn't empty
+      else {
+          fetch(url).then((resp) => resp.json()).then((data) => {
+              //if movie exist in database
+              if (data.Response == "True") {
+                  result.innerHTML = `
+                      <div class="info">
+                          <img src=${data.Poster} class="poster">
+                          <div>
+                              <h2>${data.Title}</h2>
+                              <div class="details">
+                                  <span>${data.Rated}</span>
+                                  <span>${data.Year}</span>
+                                  <span>${data.Runtime}</span>
+                              </div>
+                              <div class="genre">
+                                  <div>${data.Genre.split(",").join("</div><div>")}</div>
+                              </div>
+                          </div>
+                      </div>
+                      <h3>Plot:</h3>
+                      <p>${data.Plot}</p>
+                      <h3>Cast:</h3>
+                      <p>${data.Actors}</p>
+                  `;
+              }
+
+              //if movie doesn't exist in database
+              else {
+                  result.innerHTML = `<h3 class="msg">${data.Error}</h3>`;
+              }
+          })
+              //if error occurs
+              .catch(() => {
+                  result.innerHTML = `<h3 class="msg">Error Occured</h3>`;
+              });
+      }
+  };
+
+  searchBtn.addEventListener("click", getMovie);
+  window.addEventListener("load", getMovie);
+</script>
