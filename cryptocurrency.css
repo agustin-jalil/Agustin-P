@@ -1,0 +1,238 @@
+  @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&display=swap');
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+                60px 60px/120px 120px linear-gradient(135deg, #000000 10%, #111111 0 25%, transparent 0 75%, #111111 0 90%, #000000 90%),
+                0 0/120px 120px linear-gradient(135deg, #000000 10%, #1e1e1e 0 25%, transparent 0 75%, #1e1e1e 0 90%, #000000 90%),
+                0 0/120px 120px linear-gradient(45deg, #000000 10%, #111111 0 25%, #1e1e1e 0 40%, #000000 0 60%, #1e1e1e 0 75%, #111111 0 90%, #000000 90%);
+  }
+  .coin{
+      display: flex;
+      width: 460px;
+      height: 80px;
+      border-radius: 8px;
+      margin: 8px 5px;
+      font-family: 'Mukta', sans-serif;
+  }
+
+  .coin .coin-logo{
+      width: 80px;
+      height: 100%;
+      display: grid;
+      place-items: center;
+  }
+
+  .coin .coin-logo img{
+      width: 70%;
+      height: 70%;
+  }
+
+  .coin .coin-name{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+  }
+
+  .coin .coin-name h3{
+      color: #fff;
+      font-size: 26px;
+      text-transform: uppercase;
+  }
+
+  .coin .coin-name span{
+      color: #aaa;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 6px 0 0 2px;
+  }
+
+  .coin .coin-price {
+      display: grid;
+      align-items: center;
+      margin-left: auto;
+      padding: 4px 32px 0 0;
+      text-align: right;
+  }
+
+  .coin .coin-price .price{
+      font-size: 26px;
+      font-weight: 700;
+      margin-top: -6px;
+  }
+
+  .coin .coin-price .change{
+      color: #aaa;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: -30px;
+  }
+
+  .coin.rising{
+      background: linear-gradient(90deg, #4eb64510, #4eb64510);
+  }
+
+  .coin.rising .coin-price .price{
+      color: #30ff20;
+  }
+
+  .coin.falling{
+      background: linear-gradient(90deg, #aa444425, #aa444425);
+  }
+
+  .coin.falling .coin-price .price{
+      color: #ff4040;
+  }
+
+    .chart {
+    border: 1px solid #ccc;
+    position: relative;
+  }
+
+  .line {
+    fill: none;
+    stroke: blue;
+    stroke-width: 2;
+  }
+
+  .data-point {
+    fill: blue;
+  }
+
+
+  .coin.crypto {
+    overflow-x: scroll;
+    width: 100%;
+    height: 70%;
+  }
+
+  .coin.crypto::-webkit-scrollbar {
+    width: 8px;
+    background-color: white;
+  }
+
+  .coin.crypto::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .coin.crypto::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #my-chart.area {
+  height: 200px;
+  max-width: 400px;
+  margin: 0 auto;
+  }
+
+    .card{
+      position: relative;
+      background-color: #1b1b1b;
+      width: auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.08);
+  }
+
+  .card h2{
+      color: #f8f8f8;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+  }
+
+  .card p{
+      color: #ccc;
+      font-size: 12px;
+      margin: 0 0 16px;
+  }
+
+  .card .pulse{
+      position: absolute;
+      background: gold;
+      width: 14px;
+      height: 14px;
+      right: 31px;
+      top: 35px;
+      border-radius: 50%;
+  }
+
+  .card .pulse::after{
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      border: 0.1px solid gold;
+      transform-origin: center;
+      opacity: 0.8;
+      scale: 0;
+      animation: pulse 3s linear infinite;
+  }
+
+  @keyframes pulse{
+      70%{
+          scale: 0;
+          opacity: 0.8;
+      }
+      100%{
+          scale: 3;
+          opacity: 0;
+      }
+  }
+
+  .card .chart-area{
+      position: relative;
+  }
+
+  .card .chart-area .grid{
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      background-image: repeating-linear-gradient(to right, transparent 0% 3%, #f9f9f9 3% 3.5%, transparent 3% 18.65%);
+  }
+
+  .card .chart-area .grid::after{
+      content: "";
+      position: inherit;
+      z-index: 1;
+      bottom: 0;
+      width: inherit;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0.9), rgba(27, 27, 27, 1));
+  }
+
+  body .apexcharts-tooltip.apexcharts-theme-light{
+      color: #e2dede;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      box-shadow: none;
+      padding: 4px 4px 0;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border: 0;
+  }
+
+  .apexcharts-tooltip-title, .apexcharts-xaxistooltip-bottom.apexcharts-theme-light{
+      display: none;
+  }
+  .container{
+    height: 100%;
+  }

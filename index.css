@@ -1,0 +1,254 @@
+  .bg-photo {
+    --s: 50px;
+    --c: #000825;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+    background:
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
+      radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s),
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s),
+      radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s),
+      repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s),
+      radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+
+    z-index: -9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0%;
+  }
+
+  h1{
+    text-align: center;
+    background-color: burlywood;
+
+  }
+
+
+  h1:hover{
+    background-color: #fff;
+    -webkit-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+    -moz-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+    box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+  }
+
+  .center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust this value as needed */
+  }
+
+
+   .full-screen {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .white-box {
+    background:
+          radial-gradient(50% 50% at 100% 0,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50% at 0 100%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%) 10px 10px;
+    background-size: 20px 20px;
+    background-color: #deb887;
+    padding: 0px;
+    border-radius: 5px;
+    border-right: 2px groove burlywood;
+    border-left: 2px groove burlywood;
+    height: 75%;
+    width: 75%;
+    position: relative; /* Added */
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+  }
+
+  .bar {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+  }
+
+  .dropdown-content,
+  .dropdown-contenido {
+    display: none;
+    background-color: transparent;
+    z-index: 1;
+    max-height: 325px;
+    overflow-y: scroll;
+  }
+
+  .scrollable-menu {
+  max-height: 0%;
+  }
+
+    .dropdown-contenido::-webkit-scrollbar {
+    width: 0; /* Set the width of the scrollbar */
+    background-color: transparent; /* Set the background color of the scrollbar */
+  }
+
+  .dropdown-contenido::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Set the color of the scrollbar thumb */
+  }
+
+  .dropdown-contenido::-webkit-scrollbar-track {
+    background-color: transparent; /* Set the color of the scrollbar track */
+  }
+      .dropdown-content::-webkit-scrollbar {
+    width: 0; /* Set the width of the scrollbar */
+    background-color: transparent; /* Set the background color of the scrollbar */
+  }
+
+  .dropdown-content::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Set the color of the scrollbar thumb */
+  }
+
+  .dropdown-content::-webkit-scrollbar-track {
+    background-color: transparent; /* Set the color of the scrollbar track */
+  }
+
+  .dropdown-content a,
+  .dropdown-contenido a {
+    color: black;
+    background-color: burlywood;
+    text-decoration: none;
+    display: flex;
+    padding: 30px 0px;
+    justify-content:center
+
+  }
+
+  .dropdown-content a:hover,
+  .dropdown-contenido a:hover {
+    background-color: #fff;
+    -webkit-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+    -moz-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+    box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
+  }
+
+  .dropdown{
+    top: auto; /* Reset the top position */
+    bottom: 100%; /* Position the dropdown above the button */
+    margin-bottom: 0; /* Remove any margin to ensure alignment */
+  }
+
+  .show {
+    display: block;
+  }
+
+  .marco{
+    border-image-slice:
+    15 15 15 15 fill;
+    border-image-width:
+    10px 10px 10px 10px;
+    border-image-outset:
+    0px 0px 0px 0px;
+    border-image-repeat:
+    round round;
+    border-image-source:
+    url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
+    border-style:
+    solid;
+
+  }
+  .perfilabout {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1;
+    padding: 0px;
+    box-sizing: border-box;
+    transform-origin: 100% 0%;
+    transform: scaleY(0);
+    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.5s;
+  }
+
+  .image-wrapper:hover + .perfilabout {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .perfilanimado {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 96.5%;
+
+
+  }
+
+
+  @-webkit-keyframes scale-in-ver-top {
+    0% {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-ver-top {
+    0% {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+      opacity: 1;
+    }
+  }
+
+  .subrayado{
+    color: #000825 ;
+    text-shadow: rgb(255,255,255) 0px 0px 6px;
+  }
+
+  i{
+    text-align: center;
+    font-size: xxx-large;
+  }
+
+
+  svg{
+    text-align: center;
+    height:15%;
+    width:10%;
+  }

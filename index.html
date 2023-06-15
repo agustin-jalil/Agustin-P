@@ -1,320 +1,68 @@
-<style>
-  .bg-photo {
-    --s: 50px;
-    --c: #000825;
-    --_s: calc(2*var(--s)) calc(2*var(--s));
-    --_g: 35.36% 35.36% at;
-    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
-    background:
-      radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
-      radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s),
-      radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s),
-      radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s),
-      repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s),
-      radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
-    background-attachment: fixed;
+<!DOCTYPE html>
+<html lang="en">
 
-    z-index: -9;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0%;
-  }
+<head>
+  <title>AgustinPortafolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- CSRF Meta Tags -->
+  <meta name="csrf-token" />
+  <!-- Content Security Policy Meta Tag -->
+  <meta http-equiv="Content-Security-Policy" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="path/to/fontawesome-free-5.x.x-web/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
-  h1{
-    text-align: center;
-    background-color: burlywood;
-
-  }
-
-
-  h1:hover{
-    background-color: #fff;
-    -webkit-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-    -moz-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-    box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-  }
-
-  .center-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust this value as needed */
-  }
-
-
-   .full-screen {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .white-box {
-    background:
-          radial-gradient(50% 50% at 100% 0,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
-          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
-          #0000 96%),
-          radial-gradient(50% 50% at 0 100%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
-          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
-          #0000 96%),
-          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
-          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
-          #0000 96%),
-          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
-          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
-          #0000 96%) 10px 10px;
-    background-size: 20px 20px;
-    background-color: #deb887;
-    padding: 0px;
-    border-radius: 5px;
-    border-right: 2px groove burlywood;
-    border-left: 2px groove burlywood;
-    height: 75%;
-    width: 75%;
-    position: relative; /* Added */
-    -webkit-transform-style:preserve-3d;
-    transform-style:preserve-3d;
-  }
-
-  .bar {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    cursor: pointer;
-  }
-
-  .dropdown-content,
-  .dropdown-contenido {
-    display: none;
-    background-color: transparent;
-    z-index: 1;
-    max-height: 325px;
-    overflow-y: scroll;
-  }
-
-  .scrollable-menu {
-  max-height: 0%;
-  }
-
-    .dropdown-contenido::-webkit-scrollbar {
-    width: 0; /* Set the width of the scrollbar */
-    background-color: transparent; /* Set the background color of the scrollbar */
-  }
-
-  .dropdown-contenido::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Set the color of the scrollbar thumb */
-  }
-
-  .dropdown-contenido::-webkit-scrollbar-track {
-    background-color: transparent; /* Set the color of the scrollbar track */
-  }
-      .dropdown-content::-webkit-scrollbar {
-    width: 0; /* Set the width of the scrollbar */
-    background-color: transparent; /* Set the background color of the scrollbar */
-  }
-
-  .dropdown-content::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Set the color of the scrollbar thumb */
-  }
-
-  .dropdown-content::-webkit-scrollbar-track {
-    background-color: transparent; /* Set the color of the scrollbar track */
-  }
-
-  .dropdown-content a,
-  .dropdown-contenido a {
-    color: black;
-    background-color: burlywood;
-    text-decoration: none;
-    display: flex;
-    padding: 30px 0px;
-    justify-content:center
-
-  }
-
-  .dropdown-content a:hover,
-  .dropdown-contenido a:hover {
-    background-color: #fff;
-    -webkit-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-    -moz-box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-    box-shadow: inset -0.5px -6.5px 32px 10px #dddddd;
-  }
-
-  .dropdown{
-    top: auto; /* Reset the top position */
-    bottom: 100%; /* Position the dropdown above the button */
-    margin-bottom: 0; /* Remove any margin to ensure alignment */
-  }
-
-  .show {
-    display: block;
-  }
-
-  .marco{
-    border-image-slice:
-    15 15 15 15 fill;
-    border-image-width:
-    10px 10px 10px 10px;
-    border-image-outset:
-    0px 0px 0px 0px;
-    border-image-repeat:
-    round round;
-    border-image-source:
-    url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
-    border-style:
-    solid;
-
-  }
-  .perfilabout {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    z-index: 1;
-    padding: 0px;
-    box-sizing: border-box;
-    transform-origin: 100% 0%;
-    transform: scaleY(0);
-    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.5s;
-  }
-
-  .image-wrapper:hover + .perfilabout {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  .image-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-
-  .perfilanimado {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 96.5%;
-
-
-  }
-
-
-  @-webkit-keyframes scale-in-ver-top {
-    0% {
-      -webkit-transform: scaleY(0);
-              transform: scaleY(0);
-      -webkit-transform-origin: 100% 0%;
-              transform-origin: 100% 0%;
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scaleY(1);
-              transform: scaleY(1);
-      -webkit-transform-origin: 100% 0%;
-              transform-origin: 100% 0%;
-      opacity: 1;
-    }
-  }
-  @keyframes scale-in-ver-top {
-    0% {
-      -webkit-transform: scaleY(0);
-              transform: scaleY(0);
-      -webkit-transform-origin: 100% 0%;
-              transform-origin: 100% 0%;
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scaleY(1);
-              transform: scaleY(1);
-      -webkit-transform-origin: 100% 0%;
-              transform-origin: 100% 0%;
-      opacity: 1;
-    }
-  }
-
-  .subrayado{
-    color: #000825 ;
-    text-shadow: rgb(255,255,255) 0px 0px 6px;
-  }
-
-  i{
-    text-align: center;
-    font-size: xxx-large;
-  }
-</style>
-
-<div class="container-fluid h-100 bg-photo">
-  <div class="row h-100">
-    <div class="col-6 full-screen">
-      <div class="white-box card rounded-5 bg-transparent">
-        <div class="image-wrapper">
-          <img class="perfilanimado rounded-5" src="assets/agustin.jpg" alt="">
-        </div>
-        <div class="white-box perfilabout rounded-5">
-          <h2 class="subrayado text-center py-5 m-0">ABOUT</h2>
-          <p class="marco col-12 text-center p-3 m-0 p-4 m-0" style="text-align: justify">Detail-oriented, organized and meticulous employee. Works at a fast pace to meet tight deadlines. Enthusiastic team player ready to contribute to company success. I did a 9-week full-time intensive coding bootcamp learning HTML, CSS, Bootstrap, JavaScript ES6, SQL, git, GitHub, Heroku, and Ruby on Rails. Designed, implemented, and shipped to production a clone of Airbnb and a Rails prototype.</p>
+<body>
+  <div class="container-fluid h-100 bg-photo">
+    <div class="row h-100">
+      <div class="col-6 full-screen">
+        <div class="white-box card rounded-5 bg-transparent">
+          <div class="image-wrapper">
+            <img class="perfilanimado rounded-5" src="assets/agustin.jpg" alt="">
+          </div>
+          <div class="white-box perfilabout rounded-5">
+            <h2 class="subrayado text-center py-5 m-0">ABOUT</h2>
+            <p class="marco col-12 text-center p-3 m-0 p-4 m-0" style="text-align: justify">Detail-oriented, organized and meticulous employee. Works at a fast pace to meet tight deadlines. Enthusiastic team player ready to contribute to company success. I did a 9-week full-time intensive coding bootcamp learning HTML, CSS, Bootstrap, JavaScript ES6, SQL, git, GitHub, Heroku, and Ruby on Rails. Designed, implemented, and shipped to production a clone of Airbnb and a Rails prototype.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-6 full-screen">
-      <div class="white-box d-flex rounded-4" style="background-color: transparent;">
-        <div class="bar">
-          <h1 id="dropone" class="dropbtn dropdown rounded-4 p-2 m-0" onclick="toggleDropdown()">PROJECTS</h1>
-          <div id="myDropdown" class="dropdown-content my-3">
-            <div class="scrollable-menu my-0">
-              <a class="rounded-4 my-1" href="/cryptocurrency" target="_blank"><h2>Crypto</h2></a>
-              <a class="rounded-4 my-1" href="/music" target="_blank"><h2>Music</h2></a>
-              <a class="rounded-4 my-1" href="/weather" target="_blank"><h2>Weather</h2></a>
-              <a class="rounded-4 my-1" href="/movie" target="_blank"><h2>Movie</h2></a>
+      <div class="col-6 full-screen">
+        <div class="white-box d-flex rounded-4" style="background-color: transparent;">
+          <div class="bar">
+            <h1 id="dropone" class="dropbtn dropdown rounded-4 p-2 m-0" onclick="toggleDropdown()">PROJECTS</h1>
+            <div id="myDropdown" class="dropdown-content my-3">
+              <div class="scrollable-menu my-0">
+                <a class="rounded-4 my-1" href="/cryptocurrency.html" target="_blank"><h2>Crypto</h2></a>
+                <a class="rounded-4 my-1" href="/music.html" target="_blank"><h2>Music</h2></a>
+                <a class="rounded-4 my-1" href="/weather.html" target="_blank"><h2>Weather</h2></a>
+                <a class="rounded-4 my-1" href="/movie.html" target="_blank"><h2>Movie</h2></a>
+              </div>
+            </div>
+            <div id="Dropdown" class="dropdown-contenido my-4">
+              <a class="rounded-4 my-1" href="https://github.com/agustin-jalil" target="_blank"><i class="fab fa-github w-25"></i></a>
+              <a class="rounded-4 my-1" href="https://www.linkedin.com/in/agustin-jalil-leon/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a class="rounded-4 my-1" href="mailto:agustinjalilleon@gmail.com" id="copyButton" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a>
             </div>
           </div>
-          <div id="Dropdown" class="dropdown-contenido my-4">
-            <a class="rounded-4 my-1" href="https://github.com/agustin-jalil" target="_blank"><i class="fab fa-github w-25"></i></a>
-            <a class="rounded-4 my-1" href="https://www.linkedin.com/in/agustin-jalil-leon/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a class="rounded-4 my-1" href="mailto:agustinjalilleon@gmail.com" id="copyButton" target="_blank"><i class="fa-brands fa-google" id="linkToCopy"></i></a>
+          <div class="bar" style="align-self: flex-end;">
+            <h1 id="dropone" class="drop dropdown rounded-4 p-2 m-0 " onclick="toggleDropdown()">ABOUT</h1>
           </div>
-        </div> <!-- Added -->
-        <div class="bar" style="align-self: flex-end;">
-          <h1 id="dropone" class="drop dropdown rounded-4 p-2 m-0 " onclick="toggleDropdown()">ABOUT</h1>
-        </div> <!-- Added -->
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
 
-  function toggleDropdown() {
-    var dropdown = document.getElementById("myDropdown");
-    dropdown.classList.toggle("show");
-    var dropdownses = document.getElementById("Dropdown");
-    dropdownses.classList.toggle("show");
-  }
-
-  // Close the dropdown if clicked outside
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-    if (!event.target.matches('.drop') && !event.target.closest('.dropdown-contenido')) {
-      var dropdownsess = document.getElementsByClassName("dropdown-contenido");
-      for (var i = 0; i < dropdownsess.length; i++) {
-        var openDropdown = dropdownsess[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  };
-</script>
+</html>
