@@ -70,7 +70,34 @@
     border-radius: 5px;
     border-right: 2px groove burlywood;
     border-left: 2px groove burlywood;
-    height: 75%;
+    height: 75vh;
+    width: 75%;
+    position: relative; /* Added */
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+  }
+
+  .box {
+    background:
+          radial-gradient(50% 50% at 100% 0,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50% at 0 100%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%),
+          radial-gradient(50% 50%,#deb887 0%  5% ,#f0f0f0 6%  15%,#deb887 16% 25%,#f0f0f0 26% 35%,#deb887 36% 45%,
+          #f0f0f0 46% 55%,#deb887 56% 65%,#f0f0f0 66% 75%,#deb887 76% 85%,#f0f0f0 86% 95%,
+          #0000 96%) 10px 10px;
+    background-size: 20px 20px;
+    background-color: #deb887;
+    padding: 0px;
+    border-radius: 5px;
+    border-right: 2px groove burlywood;
+    border-left: 2px groove burlywood;
+    height: auto;
     width: 75%;
     position: relative; /* Added */
     -webkit-transform-style:preserve-3d;
@@ -89,7 +116,8 @@
     display: none;
     background-color: transparent;
     z-index: 1;
-    max-height: 325px;
+    height: 55vh;
+    max-height: auto;
     overflow-y: scroll;
   }
 
@@ -177,7 +205,7 @@
     z-index: 1;
     padding: 0px;
     box-sizing: border-box;
-    transform-origin: 100% 0%;
+    transform-origin: auto 0%;
     transform: scaleY(0);
     transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.5s;
   }
@@ -194,10 +222,8 @@
 
   .perfilanimado {
     display: block;
-    max-width: 100%;
-    max-height: 100%;
     width: 100%;
-    height: 96.5%;
+    height:auto;
 
 
   }
